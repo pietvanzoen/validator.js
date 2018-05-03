@@ -50,6 +50,8 @@ import isByteLength from './lib/isByteLength';
 import isUUID from './lib/isUUID';
 import isMongoId from './lib/isMongoId';
 
+import isSemVer from './lib/isSemVer';
+
 import isAfter from './lib/isAfter';
 import isBefore from './lib/isBefore';
 

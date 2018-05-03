@@ -5488,4 +5488,30 @@ describe('Validators', function () {
       ],
     });
   });
+
+  it('should validate SemVer strings', function () {
+    test({
+      validator: 'isSemVer',
+      valid: [
+        '0.0.0',
+        '0.0.0',
+        '1.2.0',
+        '12.0.1',
+        '1.0.0-alpha',
+        '1.0.0-alpha.1',
+        '1.0.0-0.3.7',
+        '1.0.0-x.7.z.92',
+        '1.0.0-alpha+001',
+        '1.0.0+20130313144700',
+        '1.0.0-beta+exp.sha.5114f85',
+      ],
+      invalid: [
+        '00.00.00',
+        '01.02.03',
+        'v1.2.3', // https://github.com/semver/semver/blob/master/semver.md#is-v123-a-semantic-version
+        '1.0.0beta',
+        '1.0.0-beta wibble',
+      ],
+    });
+  });
 });
